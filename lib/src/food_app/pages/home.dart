@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../constants.dart' as constants;
 import '../models/dishes.dart';
+import '../widgets/cards.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -18,14 +20,49 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _AppBar(),
+                SizedBox(height: 20.0),
                 _SearchBar(),
                 SizedBox(height: 20.0),
-                _TypeList(),
+                _HorizontalList(
+                  items: Dishes.types,
+                  itemBuilder: (context, int i) => TypeCard(index: i),
+                ),
                 _PopularFoodsTitle(),
+                SizedBox(height: 10.0),
+                _HorizontalList(
+                  isLarge: true,
+                  items: Dishes.dishes,
+                  itemBuilder: (context, int i) => DishCard(index: i),
+                )
               ],
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: _BottomNavBar(),
+    );
+  }
+}
+
+class _BottomNavBar extends StatelessWidget {
+  const _BottomNavBar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      child: Container(
+        height: 50,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Icon(FontAwesomeIcons.home, color: constants.kPrimaryColor),
+            Icon(FontAwesomeIcons.shoppingBag, color: Colors.grey),
+            Icon(Icons.location_on, color: Colors.grey),
+            Icon(Icons.person, color: Colors.grey),
+          ],
+        ),
       ),
     );
   }
@@ -38,63 +75,51 @@ class _PopularFoodsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, top: 30.0),
-      child: Text(
-        'Popular Foods',
-        style: Theme.of(context).textTheme.headline5,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            'Popular Foods',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              'View All',
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    color: Colors.teal.withOpacity(0.8),
+                    fontWeight: FontWeight.w300,
+                  ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _TypeList extends StatelessWidget {
-  const _TypeList({
+class _HorizontalList extends StatelessWidget {
+  const _HorizontalList({
     Key key,
+    this.items,
+    this.itemBuilder,
+    this.isLarge = false,
   }) : super(key: key);
+
+  final bool isLarge;
+  final List<Object> items;
+  final Function(BuildContext, int) itemBuilder;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130.0,
+      height: this.isLarge ? 300.0 : 130.0,
       child: ListView.builder(
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: Dishes.types.length,
-        itemBuilder: (context, int i) => _TypeCard(index: i),
-      ),
-    );
-  }
-}
-
-class _TypeCard extends StatelessWidget {
-  const _TypeCard({
-    Key key,
-    this.index,
-  }) : super(key: key);
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15.0),
-      child: Card(
-        elevation: 4.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 70.0,
-              width: 120.0,
-              child: Image.asset(Dishes.types[index].image),
-            ),
-            SizedBox(height: 10.0),
-            Text(Dishes.types[index].name),
-          ],
-        ),
+        itemCount: this.items.length,
+        itemBuilder: this.itemBuilder,
       ),
     );
   }
