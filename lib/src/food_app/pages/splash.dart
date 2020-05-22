@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:flutter_svg/svg.dart';
+import 'package:animate_do/animate_do.dart';
 
 import 'home.dart';
 import '../constants.dart' as constants;
@@ -8,6 +10,8 @@ import '../constants.dart' as constants;
 class FoodApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
     return _SplashPage();
   }
 }
@@ -19,20 +23,18 @@ class _SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-
     return Scaffold(
       body: Stack(
         children: [
           Positioned(
             top: 30,
             left: -70,
-            child: _Circle(isBig: true),
+            child: JelloIn(child: _Circle(isBig: true)),
           ),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.5,
             right: 30,
-            child: _Circle(),
+            child: JelloIn(child: _Circle()),
           ),
           SafeArea(
             child: Column(
@@ -41,7 +43,9 @@ class _SplashPage extends StatelessWidget {
                 _MainContent(),
                 Spacer(),
                 Expanded(
-                  child: SvgPicture.asset('assets/food_app/delivery.svg'),
+                  child: ElasticInUp(
+                    child: SvgPicture.asset('assets/food_app/delivery.svg'),
+                  ),
                 ),
               ],
             ),
@@ -64,36 +68,42 @@ class _MainContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Get\nthe Fastest\nDelivery',
-            style: Theme.of(context)
-                .textTheme
-                .headline3
-                .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+          SlideInLeft(
+            child: Text(
+              'Get\nthe Fastest\nDelivery',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline3
+                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
           ),
           SizedBox(height: 20.0),
-          Text(
-            'Order Food and get\nDelivery in Fastest time in Town',
-            style: Theme.of(context).textTheme.headline6,
+          SlideInLeft(
+            child: Text(
+              'Order Food and get\nDelivery in Fastest time in Town',
+              style: Theme.of(context).textTheme.headline6,
+            ),
           ),
           SizedBox(height: 10.0),
-          RaisedButton(
-            color: constants.kPrimaryColor,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 5.0,
+          ElasticInLeft(
+            child: RaisedButton(
+              color: constants.kPrimaryColor,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 5.0,
+                ),
+                child: Text(
+                  'Get Started',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-              child: Text(
-                'Get Started',
-                style: TextStyle(color: Colors.white),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => HomePage()),
               ),
-            ),
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => HomePage()),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
             ),
           ),
         ],

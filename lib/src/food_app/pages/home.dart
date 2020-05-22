@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
+import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../constants.dart' as constants;
 import '../models/dishes.dart';
 import '../widgets/cards.dart';
+import '../constants.dart' as constants;
 
 class HomePage extends StatelessWidget {
   @override
@@ -19,27 +21,46 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _AppBar(),
-                SizedBox(height: 20.0),
-                _SearchBar(),
-                SizedBox(height: 20.0),
-                _HorizontalList(
-                  items: Dishes.types,
-                  itemBuilder: (context, int i) => TypeCard(index: i),
-                ),
-                _PopularFoodsTitle(),
                 SizedBox(height: 10.0),
-                _HorizontalList(
-                  isLarge: true,
-                  items: Dishes.dishes,
-                  itemBuilder: (context, int i) => DishCard(index: i),
+                SlideInLeft(
+                  duration: Duration(milliseconds: 600),
+                  child: _AppBar(),
+                ),
+                SizedBox(height: 20.0),
+                FadeInLeft(
+                  duration: Duration(milliseconds: 700),
+                  child: _SearchBar(),
+                ),
+                SizedBox(height: 20.0),
+                SlideInRight(
+                  duration: Duration(milliseconds: 800),
+                  child: _HorizontalList(
+                    items: Dishes.types,
+                    itemBuilder: (context, int i) => TypeCard(index: i),
+                  ),
+                ),
+                SlideInLeft(
+                  duration: Duration(milliseconds: 900),
+                  child: _PopularFoodsTitle(),
+                ),
+                SizedBox(height: 10.0),
+                SlideInRight(
+                  duration: Duration(milliseconds: 1000),
+                  child: _HorizontalList(
+                    isLarge: true,
+                    items: Dishes.dishes,
+                    itemBuilder: (context, int i) => DishCard(index: i),
+                  ),
                 )
               ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: _BottomNavBar(),
+      bottomNavigationBar: BounceInUp(
+        duration: Duration(milliseconds: 1500),
+        child: _BottomNavBar(),
+      ),
     );
   }
 }
@@ -53,7 +74,7 @@ class _BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       child: Container(
-        height: 50,
+        height: 70,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

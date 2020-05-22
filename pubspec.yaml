@@ -25,7 +25,10 @@ dependencies:
     sdk: flutter
   
   provider: ^4.1.2
+  animate_do: ^1.7.2
+  animations: ^1.0.0+5
   flutter_svg: ^0.17.4
+  flutter_lorem: ^1.1.0
   font_awesome_flutter: ^8.8.1
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,4 +1,6 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_challenges/src/food_app/pages/detail.dart';
 
 import '../constants.dart' as constants;
 import '../models/dishes.dart';
@@ -47,43 +49,61 @@ class DishCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      margin: const EdgeInsets.only(left: 15, right: 15),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            bottom: 10,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(0.0, 1.0),
-                    blurRadius: 2.0,
-                  ),
-                ],
+    return OpenContainer(
+      closedElevation: 0.0,
+      closedColor: Colors.transparent,
+      openBuilder: (context, void Function() action) {
+        return DetailPage(index: index);
+      },
+      closedBuilder: (context, void Function() action) {
+        return Container(
+          width: 200,
+          margin: const EdgeInsets.only(left: 15, right: 15),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned(
+                bottom: 10,
+                child: _DishCard(index: index),
               ),
-              width: 200.0,
-              height: 200.0,
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 15.0),
-              child: _DishContent(index: index),
-            ),
+              Positioned(
+                top: 0,
+                child: Container(
+                  height: 150,
+                  width: 150,
+                  child: Hero(
+                    tag: 'dish-$index',
+                    child: Image.asset(
+                      'assets/food_app/dish-${this.index + 1}.png',
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          Positioned(
-            top: 0,
-            child: Container(
-              height: 150,
-              width: 150,
-              child: Image.asset('assets/food_app/dish-${this.index + 1}.png'),
-            ),
-          ),
-        ],
-      ),
+        );
+      },
+    );
+  }
+}
+
+class _DishCard extends StatelessWidget {
+  const _DishCard({
+    Key key,
+    @required this.index,
+  }) : super(key: key);
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: constants.shadedDecoration,
+      width: 200.0,
+      height: 200.0,
+      alignment: Alignment.centerLeft,
+      padding: const EdgeInsets.only(left: 15.0),
+      child: _DishContent(index: index),
     );
   }
 }
@@ -142,7 +162,10 @@ class _DishContent extends StatelessWidget {
         Text(
           '\$' + Dishes.dishes[index].price.toStringAsFixed(0),
           overflow: TextOverflow.fade,
-          style: Theme.of(context).textTheme.headline6.copyWith(color: constants.kPrimaryColor),
+          style: Theme.of(context)
+              .textTheme
+              .headline6
+              .copyWith(color: constants.kPrimaryColor),
         ),
         SizedBox(height: 10.0),
       ],
