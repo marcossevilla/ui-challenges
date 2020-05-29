@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenges/src/food_app/pages/splash.dart';
+
+import 'src/apps.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +30,13 @@ class _Home extends StatelessWidget {
             title: Text('Food App'),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => FoodApp()),
+            ),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            title: Text('Charity App'),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => CharityApp()),
             ),
             trailing: Icon(Icons.chevron_right),
           ),

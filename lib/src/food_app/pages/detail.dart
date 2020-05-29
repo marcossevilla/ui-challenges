@@ -18,25 +18,41 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _Header(index: index),
-                SizedBox(height: 10.0),
-                FadeInUp(child: _Headline(index: index)),
-                SizedBox(height: 10.0),
-                Divider(),
-                _DishStats(index: index),
-                Divider(),
-                _DishDescription(),
-                ElasticInLeft(child: _AddToCartSwitch()),
-              ],
-            ),
-          ),
+          _ScrollView(index: index),
           _FloatButton(),
         ],
       ),
+    );
+  }
+}
+
+class _ScrollView extends StatelessWidget {
+  const _ScrollView({
+    Key key,
+    @required this.index,
+  }) : super(key: key);
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: [
+        SliverList(
+          delegate: SliverChildListDelegate([
+            _Header(index: index),
+            SizedBox(height: 10.0),
+            FadeInUp(child: _Headline(index: index)),
+            SizedBox(height: 10.0),
+            Divider(),
+            _DishStats(index: index),
+            Divider(),
+            _DishDescription(),
+            ElasticInLeft(child: _AddToCartSwitch()),
+            SizedBox(height: 100),
+          ]),
+        )
+      ],
     );
   }
 }
@@ -48,7 +64,10 @@ class _AddToCartSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      alignment: Alignment.center,
+      height: 100,
+      width: double.infinity,
       child: RollingSwitch(
         value: false,
         textOn: 'Added to cart!',
