@@ -102,7 +102,7 @@ class CustomDrawerState extends State<CustomDrawer>
   }
 
   void _onDragEnd(DragEndDetails details) {
-    //I have no idea what it means, copied from Drawer
+    // I have no idea what it means, copied from Drawer
     double _kMinFlingVelocity = 365.0;
 
     if (_animationController.isDismissed || _animationController.isCompleted) {
@@ -154,14 +154,16 @@ class MyDrawer extends StatelessWidget {
                   title: Text('Goals', style: TextStyle(color: Colors.grey)),
                 ),
                 ListTile(
-                  leading: Icon(FontAwesomeIcons.locationArrow, color: Colors.grey),
+                  leading:
+                      Icon(FontAwesomeIcons.locationArrow, color: Colors.grey),
                   title: Text(
                     'The Table',
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),
                 ListTile(
-                  leading: Icon(FontAwesomeIcons.peopleCarry, color: Colors.grey),
+                  leading:
+                      Icon(FontAwesomeIcons.peopleCarry, color: Colors.grey),
                   title: Text(
                     'Community',
                     style: TextStyle(color: Colors.grey),
@@ -193,10 +195,7 @@ class _UserData extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundColor: Colors.red,
-            child: Icon(
-              FontAwesomeIcons.user,
-              color: Colors.black54,
-            ),
+            child: Icon(FontAwesomeIcons.userAlt, color: Colors.black54),
           ),
           SizedBox(width: 10.0),
           Column(
