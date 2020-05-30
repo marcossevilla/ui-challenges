@@ -1,13 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// import 'package:animate_do/animate_do.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets/cool_drawer.dart';
 import '../widgets/charity_card.dart';
 import '../widgets/floating_menu.dart';
+import 'learn_more.dart';
 
 class CharityApp extends StatelessWidget {
   @override
@@ -28,20 +29,64 @@ class _Home extends StatelessWidget {
           alignment: Alignment.topCenter,
           children: [
             SafeArea(
-              child: Column(
+              bottom: false,
+              child: ListView(
+                physics: BouncingScrollPhysics(),
                 children: [
                   _AppBar(),
                   _Swiper(),
-
+                  _LearnMore(),
                 ],
               ),
             ),
             Positioned(
-              bottom: MediaQuery.of(context).size.height * 0.04,
+              bottom: MediaQuery.of(context).size.width * 0.08,
               child: _FloatingMenu(),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _LearnMore extends StatelessWidget {
+  const _LearnMore({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: 15.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Learn more',
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                CupertinoButton(
+                  child: Text(
+                    'View All',
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => LearnMorePage()),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          LearnMoreCard(index: 0),
+          LearnMoreCard(index: 1),
+          LearnMoreCard(index: 2),
+          SizedBox(height: 70.0),
+        ],
       ),
     );
   }
@@ -84,7 +129,7 @@ class _Swiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.65,
+      height: MediaQuery.of(context).size.height * 0.6,
       width: double.infinity,
       child: Swiper(
         layout: SwiperLayout.STACK,
@@ -127,7 +172,10 @@ class _AppBar extends StatelessWidget {
               ),
             ],
           ),
-          CircleAvatar(child: Icon(Icons.person)),
+          IconButton(
+            icon: Icon(Icons.person, size: 35.0),
+            onPressed: () => CustomDrawer.of(context).open(),
+          ),
         ],
       ),
     );

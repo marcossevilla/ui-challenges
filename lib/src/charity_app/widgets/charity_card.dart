@@ -16,7 +16,7 @@ class CharityCard extends StatelessWidget {
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(20.0),
               ),
-              height: MediaQuery.of(context).size.height * 0.45,
+              height: MediaQuery.of(context).size.height * 0.4,
               width: double.infinity,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
