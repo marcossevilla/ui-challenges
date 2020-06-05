@@ -20,27 +20,27 @@ class MyApp extends StatelessWidget {
 class _Home extends StatelessWidget {
   const _Home({Key key}) : super(key: key);
 
+  static Map<String, Widget> pages = {
+    "Food App": FoodApp(),
+    "Charity App": CharityApp(),
+    "Fitness App": FitnessApp(),
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('UI Challenges')),
-      body: ListView(
-        children: [
-          ListTile(
-            title: Text('Food App'),
+      body: ListView.builder(
+        itemCount: pages.length,
+        itemBuilder: (context, i) {
+          return ListTile(
+            title: Text(pages.keys.elementAt(i)),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => FoodApp()),
+              MaterialPageRoute(builder: (_) => pages.values.elementAt(i)),
             ),
             trailing: Icon(Icons.chevron_right),
-          ),
-          ListTile(
-            title: Text('Charity App'),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => CharityApp()),
-            ),
-            trailing: Icon(Icons.chevron_right),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

@@ -20,7 +20,7 @@ class CustomDrawerState extends State<CustomDrawer>
   // static const double minDragStartEdge = 60;
   // static const double maxDragStartEdge = maxSlide - 16;
   AnimationController _animationController;
-  bool _canBeDragged = false;
+  // bool _canBeDragged = false;
 
   @override
   void initState() {
