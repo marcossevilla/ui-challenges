@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../colors.dart';
 import '../widgets/buttons.dart';
 import '../widgets/cards.dart';
+import '../screens/journal_screen.dart';
 
 class FitnessApp extends StatelessWidget {
   @override
@@ -12,7 +15,7 @@ class FitnessApp extends StatelessWidget {
       body: Column(
         children: [
           // upper part
-          _DailyPick(),
+          SlideInDown(child: _DailyPick()),
           _NewRecipes(),
         ],
       ),
@@ -29,14 +32,16 @@ class _NewRecipes extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 20.0, left: 20.0),
+          margin: const EdgeInsets.only(top: 20.0, left: 45.0),
           width: double.infinity,
-          child: Text(
-            'New recipe',
-            style: Theme.of(context).textTheme.headline6,
+          child: FadeIn(
+            child: Text(
+              'New recipe',
+              style: Theme.of(context).textTheme.headline6,
+            ),
           ),
         ),
-        _RecipeSlider(),
+        SlideInRight(child: _RecipeSlider()),
       ],
     );
   }
@@ -83,21 +88,28 @@ class _DailyPick extends StatelessWidget {
         child: ListView(
           children: [
             SizedBox(height: 20.0),
-            Text(
-              'Daily pick'.toUpperCase(),
-              style: Theme.of(context).textTheme.caption.copyWith(
-                    color: Colors.white,
-                  ),
-              textAlign: TextAlign.center,
+            SlideInDown(
+              child: Text(
+                'Daily pick'.toUpperCase(),
+                style: Theme.of(context).textTheme.caption.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
             ),
-            Text(
-              'Breakfast Ideas',
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                    color: Colors.white,
-                  ),
-              textAlign: TextAlign.center,
+            SlideInDown(
+              child: Text(
+                'Breakfast Ideas',
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
             ),
-            _MealSlider(),
+            SlideInRight(
+              duration: Duration(seconds: 1),
+              child: _MealSlider(),
+            ),
             Text(
               'Start your day off right with these\nhealthy breakfast recipes',
               style: Theme.of(context)
@@ -107,7 +119,7 @@ class _DailyPick extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30.0),
-            _Buttons(),
+            SlideInRight(child: _Buttons()),
           ],
         ),
       ),
@@ -141,6 +153,9 @@ class _Buttons extends StatelessWidget {
                 textColor: darkPurple,
                 label: 'Let\'s try',
                 backgroundColor: Colors.white,
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => JournalScreen()),
+                ),
               ),
             ),
           ),
@@ -150,24 +165,8 @@ class _Buttons extends StatelessWidget {
   }
 }
 
-class _MealSlider extends StatefulWidget {
+class _MealSlider extends StatelessWidget {
   const _MealSlider({Key key}) : super(key: key);
-
-  @override
-  __MealSliderState createState() => __MealSliderState();
-}
-
-class __MealSliderState extends State<_MealSlider> {
-  PageController _controller;
-
-  @override
-  void initState() {
-    _controller = PageController(
-      viewportFraction: 0.7,
-      initialPage: 0,
-    );
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +175,10 @@ class __MealSliderState extends State<_MealSlider> {
       height: 200,
       width: double.infinity,
       child: PageView(
-        controller: _controller,
+        controller: PageController(
+          viewportFraction: 0.6,
+          initialPage: 0,
+        ),
         physics: BouncingScrollPhysics(),
         children: [
           for (int i = 0; i < 4; i++)

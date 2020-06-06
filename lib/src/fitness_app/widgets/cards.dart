@@ -18,6 +18,7 @@ class RecipeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: ClipRRect(
+          borderRadius: BorderRadius.circular(20.0),
           child: Container(
             child: Stack(
               children: [
@@ -33,7 +34,7 @@ class RecipeCard extends StatelessWidget {
                     width: 200,
                     child: Image.asset('assets/fitness_app/meal-$index.png'),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -44,9 +45,7 @@ class RecipeCard extends StatelessWidget {
 }
 
 class _RecipeData extends StatelessWidget {
-  const _RecipeData({
-    Key key,
-  }) : super(key: key);
+  const _RecipeData({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +55,11 @@ class _RecipeData extends StatelessWidget {
         Icon(Icons.bookmark, color: Colors.grey),
         SizedBox(height: 30.0),
         Container(
-          width: 170,
+          width: 140,
           child: Text(
             'Mango and avocado salad',
-            style: Theme.of(context).textTheme.headline6,
+            style:
+                Theme.of(context).textTheme.headline6.copyWith(fontSize: 18.0),
           ),
         ),
         Text(

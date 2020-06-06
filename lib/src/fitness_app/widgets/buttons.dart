@@ -4,18 +4,20 @@ class SmallButton extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final Color backgroundColor;
+  final Function onPressed;
 
   const SmallButton({
     Key key,
     this.backgroundColor,
     this.iconColor,
     this.icon,
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: this.onPressed,
       child: Container(
         height: 60,
         width: 60,
@@ -36,12 +38,14 @@ class LargeButton extends StatelessWidget {
   final String label;
   final Color textColor;
   final Color backgroundColor;
+  final Function onPressed;
 
   const LargeButton({
     Key key,
-    this.backgroundColor,
-    this.textColor,
     this.label,
+    this.onPressed,
+    this.textColor,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -56,7 +60,7 @@ class LargeButton extends StatelessWidget {
         ),
       ),
       color: this.backgroundColor,
-      onPressed: () {},
+      onPressed: this.onPressed,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
