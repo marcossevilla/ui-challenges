@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_challenges/src/fitness_app/screens/lunch_detail_screen.dart';
+import 'package:ui_challenges/src/fitness_app/screens/nutrition_screen.dart';
 
 import '../colors.dart';
 import '../widgets/cards.dart';
@@ -145,11 +146,21 @@ class _Warning extends StatelessWidget {
                 style: TextStyle(color: Colors.black54),
               ),
               Spacer(),
-              Text(
-                'Read more',
-                style: TextStyle(
-                  color: darkPurple,
-                  fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => NutritionScreen()),
+                ),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  height: 30.0,
+                  width: 100.0,
+                  child: Text(
+                    'Read more',
+                    style: TextStyle(
+                      color: darkPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
