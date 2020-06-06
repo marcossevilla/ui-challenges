@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class PinterestButton {
+class MenuButton {
   final IconData icon;
   final Function onPressed;
 
-  PinterestButton({
+  MenuButton({
     @required this.icon,
     @required this.onPressed,
   });
 }
 
-class PinterestMenu extends StatelessWidget {
+class FloatingMenu extends StatelessWidget {
   final bool show;
-  final List<PinterestButton> items;
+  final List<MenuButton> items;
 
   final Color activeColor;
   final Color inactiveColor;
   final Color backgroundColor;
 
-  PinterestMenu({
+  FloatingMenu({
     this.show = true,
     this.items,
     this.activeColor = Colors.black,
@@ -42,7 +42,7 @@ class PinterestMenu extends StatelessWidget {
             Provider.of<_MenuState>(context).backgroundColor =
                 this.backgroundColor;
 
-            return _PinterestMenuCard(child: _MenuItems(this.items));
+            return _FloatingMenuCard(child: _MenuItems(this.items));
           },
         ),
       ),
@@ -50,8 +50,8 @@ class PinterestMenu extends StatelessWidget {
   }
 }
 
-class _PinterestMenuCard extends StatelessWidget {
-  _PinterestMenuCard({@required this.child});
+class _FloatingMenuCard extends StatelessWidget {
+  _FloatingMenuCard({@required this.child});
 
   final Widget child;
 
@@ -80,7 +80,7 @@ class _PinterestMenuCard extends StatelessWidget {
 }
 
 class _MenuItems extends StatelessWidget {
-  final List<PinterestButton> items;
+  final List<MenuButton> items;
 
   _MenuItems(this.items);
 
@@ -90,20 +90,20 @@ class _MenuItems extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         for (int i = 0; i < items.length; i++)
-          _PinterestMenuButton(i, items[i]),
+          _FloatingMenuButton(i, items[i]),
       ],
     );
   }
 }
 
-class _PinterestMenuButton extends StatelessWidget {
-  _PinterestMenuButton(
+class _FloatingMenuButton extends StatelessWidget {
+  _FloatingMenuButton(
     this.index,
     this.item,
   );
 
   final int index;
-  final PinterestButton item;
+  final MenuButton item;
 
   @override
   Widget build(BuildContext context) {

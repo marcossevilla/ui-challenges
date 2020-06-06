@@ -70,3 +70,41 @@ class _RecipeData extends StatelessWidget {
     );
   }
 }
+
+class ElevatedCard extends StatelessWidget {
+  const ElevatedCard({
+    Key key,
+    @required this.height,
+    @required this.child,
+    @required this.padding,
+    @required this.margin,
+  }) : super(key: key);
+
+  final double height;
+  final Widget child;
+  final EdgeInsets padding;
+  final EdgeInsets margin;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: this.height,
+      padding: this.padding,
+      margin: this.margin,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.blueGrey.withOpacity(0.3),
+            offset: Offset(1, 3),
+            blurRadius: 10,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
+      child: this.child,
+    );
+  }
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/radial_progress_bar.dart';
+import '../../shared/widgets/radial_progress_bar.dart';
 
 class CharityCard extends StatelessWidget {
   @override

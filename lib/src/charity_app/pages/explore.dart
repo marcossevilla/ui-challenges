@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'learn_more.dart';
 import '../widgets/cool_drawer.dart';
 import '../widgets/charity_card.dart';
-import '../widgets/floating_menu.dart';
-import 'learn_more.dart';
+import '../../shared/widgets/floating_menu.dart';
 
 class CharityApp extends StatelessWidget {
   @override
@@ -97,24 +97,24 @@ class _FloatingMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PinterestMenu(
+    return FloatingMenu(
       show: true,
       activeColor: Colors.red,
       inactiveColor: Colors.grey,
       items: [
-        PinterestButton(
+        MenuButton(
           icon: FontAwesomeIcons.bullseye,
           onPressed: () {},
         ),
-        PinterestButton(
+        MenuButton(
           icon: FontAwesomeIcons.locationArrow,
           onPressed: () {},
         ),
-        PinterestButton(
+        MenuButton(
           icon: FontAwesomeIcons.peopleCarry,
           onPressed: () {},
         ),
-        PinterestButton(
+        MenuButton(
           icon: FontAwesomeIcons.userAlt,
           onPressed: () {},
         ),

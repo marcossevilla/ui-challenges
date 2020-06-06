@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ui_challenges/src/fitness_app/screens/lunch_detail_screen.dart';
 
 import '../colors.dart';
+import '../widgets/cards.dart';
 import '../widgets/buttons.dart';
 import '../extensions/date_ext.dart';
 import '../extensions/string_ext.dart';
@@ -168,75 +170,80 @@ class _MealTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          children: [
-            Container(
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(
-                  'assets/fitness_app/pancakes.jpg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              right: -3,
-              bottom: -3,
-              child: Container(
-                height: 35,
-                width: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  isLow
-                      ? FontAwesomeIcons.solidSmile
-                      : FontAwesomeIcons.solidSadTear,
-                  color: isLow ? lighterPurple : Colors.red.withOpacity(0.6),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 20.0),
-          width: 180.0,
-          height: 80.0,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => LunchDetailScreen()),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
             children: [
-              Text(
-                'Salad with wheat and white egg',
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1
-                    .copyWith(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 5.0),
-              Text('200 cals', style: Theme.of(context).textTheme.caption),
-              SizedBox(height: 5.0),
-              if (!this.isLow)
-                Text(
-                  'Very high carb!'.toUpperCase(),
-                  style: Theme.of(context).textTheme.caption.copyWith(
-                        color: Colors.red.withOpacity(0.6),
-                        letterSpacing: 2,
-                        fontWeight: FontWeight.bold,
-                      ),
+              Container(
+                height: 80,
+                width: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(
+                    'assets/fitness_app/pancakes.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Positioned(
+                right: -3,
+                bottom: -3,
+                child: Container(
+                  height: 35,
+                  width: 35,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    isLow
+                        ? FontAwesomeIcons.solidSmile
+                        : FontAwesomeIcons.solidSadTear,
+                    color: isLow ? lighterPurple : Colors.red.withOpacity(0.6),
+                  ),
+                ),
+              ),
             ],
           ),
-        ),
-      ],
+          Container(
+            margin: const EdgeInsets.only(left: 20.0),
+            width: 180.0,
+            height: 80.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Salad with wheat and white egg',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 5.0),
+                Text('200 cals', style: Theme.of(context).textTheme.caption),
+                SizedBox(height: 5.0),
+                if (!this.isLow)
+                  Text(
+                    'Very high carb!'.toUpperCase(),
+                    style: Theme.of(context).textTheme.caption.copyWith(
+                          color: Colors.red.withOpacity(0.6),
+                          letterSpacing: 2,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -261,44 +268,6 @@ class _SearchBar extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class ElevatedCard extends StatelessWidget {
-  const ElevatedCard({
-    Key key,
-    @required this.height,
-    @required this.child,
-    @required this.padding,
-    @required this.margin,
-  }) : super(key: key);
-
-  final double height;
-  final Widget child;
-  final EdgeInsets padding;
-  final EdgeInsets margin;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: this.height,
-      padding: this.padding,
-      margin: this.margin,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blueGrey.withOpacity(0.3),
-            offset: Offset(1, 3),
-            blurRadius: 10,
-            spreadRadius: 1,
-          ),
-        ],
-      ),
-      child: this.child,
     );
   }
 }
