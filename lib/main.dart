@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'src/apps.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,6 +22,7 @@ class _Home extends StatelessWidget {
     "Food App": FoodApp(),
     "Charity App": CharityApp(),
     "Fitness App": FitnessApp(),
+    "WhatsApp Redo": WhatsAppRedo(),
   };
 
   @override
