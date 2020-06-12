@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:animate_do/animate_do.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../colors.dart';
@@ -30,24 +29,17 @@ class MyDrawer extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 15.0),
-                SlideInDown(
-                  child: Text(
-                    'Settings',
-                    style: TextStyle(color: Colors.white, fontSize: 16.0),
-                  ),
+                Text(
+                  'Settings',
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
                 SizedBox(height: 30.0),
-                SlideInLeft(child: _UserInfo()),
+                _UserInfo(),
                 _Tiles(),
-                SlideInLeft(child: _Divider()),
-                SlideInLeft(
-                  duration: Duration(seconds: 2),
-                  child: _Tile(icon: Icons.person_add, text: 'Invite a friend'),
-                ),
+                _Divider(),
+                _Tile(icon: Icons.person_add, text: 'Invite a friend'),
                 Spacer(),
-                SlideInUp(
-                  child: _Tile(icon: Icons.exit_to_app, text: 'Log out'),
-                ),
+                _Tile(icon: Icons.exit_to_app, text: 'Log out'),
               ],
             ),
           ),
@@ -129,12 +121,9 @@ class _Tiles extends StatelessWidget {
         shrinkWrap: true,
         itemCount: items.length,
         itemBuilder: (context, i) {
-          return SlideInLeft(
-            duration: Duration(milliseconds: 300 * (i + 1)),
-            child: _Tile(
-              text: items.keys.elementAt(i),
-              icon: items.values.elementAt(i),
-            ),
+          return _Tile(
+            text: items.keys.elementAt(i),
+            icon: items.values.elementAt(i),
           );
         },
       ),

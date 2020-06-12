@@ -47,7 +47,7 @@ class JournalScreen extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

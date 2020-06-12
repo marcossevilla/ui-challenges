@@ -3,7 +3,9 @@ class Chat {
   final String sender;
   final String message;
   final String imageURL;
+  final String imageMessageURL;
   final int unread;
+  final bool isVoice;
 
   Chat({
     this.time,
@@ -11,6 +13,8 @@ class Chat {
     this.message,
     this.imageURL,
     this.unread,
+    this.isVoice = false,
+    this.imageMessageURL = '',
   });
 }
 
@@ -78,5 +82,51 @@ final chats = [
     imageURL:
         'https://media1.popsugar-assets.com/files/thumbor/rel5oYkUltxB3lsjuDee0K9raZg/0x0:3427x3427/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/03/17/835/n/1922398/11a627175e711ee4975f09.79521254_/i/Jon-Hamm.jpg',
     unread: 1,
+  ),
+];
+
+final conversation = [
+  Chat(
+    time: '${DateTime.now().hour}:42',
+    sender: 'Matt Champion',
+    message: 'The world is crazy man',
+    imageURL:
+        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+  ),
+  Chat(
+    time: '${DateTime.now().hour}:50',
+    sender: 'Me',
+    message: 'It is',
+    imageURL:
+        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+  ),
+  Chat(
+    time: '${DateTime.now().hour}:51',
+    sender: 'Me',
+    message: 'Dark says the end of the world is on June 27th',
+    imageURL:
+        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+  ),
+  Chat(
+    time: '${DateTime.now().hour}:55',
+    sender: 'Matt Champion',
+    message: 'Haha seems like it',
+    imageURL:
+        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+  ),
+  Chat(
+    time: '${DateTime.now().hour}:56',
+    sender: 'Matt Champion',
+    imageURL:
+        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+    imageMessageURL:
+        'https://i.insider.com/5df126b679d7570ad2044f3e?width=1100&format=jpeg&auto=webp',
+  ),
+  Chat(
+    time: '${DateTime.now().hour}:59',
+    sender: 'Me',
+    imageURL:
+        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+    isVoice: true,
   ),
 ];

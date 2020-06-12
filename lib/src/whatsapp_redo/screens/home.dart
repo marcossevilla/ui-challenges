@@ -59,7 +59,7 @@ class _HomeScreen extends StatelessWidget {
                     itemBuilder: (context, i) {
                       return SlideInLeft(child: ChatTile(index: i));
                     },
-                    separatorBuilder: (_, __) => SizedBox(width: 10.0),
+                    separatorBuilder: (_, __) => Divider(),
                   ),
                 ),
               );

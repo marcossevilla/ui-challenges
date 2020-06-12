@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'internet_image.dart';
 
 import '../colors.dart';
 import '../models/chat.dart';
+import '../screens/chat.dart';
 
 class ChatTile extends StatelessWidget {
   const ChatTile({Key key, @required this.index}) : super(key: key);
@@ -13,16 +17,9 @@ class ChatTile extends StatelessWidget {
     final chat = chats[this.index];
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 30.0, right: 5.0),
+      padding: const EdgeInsets.only(right: 5.0),
       child: ListTile(
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(100.0),
-          child: Container(
-            width: 50.0,
-            height: 50.0,
-            child: Image.network(chat.imageURL, fit: BoxFit.cover),
-          ),
-        ),
+        leading: InternetImage(url: chats[index].imageURL),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -60,6 +57,9 @@ class ChatTile extends StatelessWidget {
                 ),
               ),
           ],
+        ),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ChatScreen()),
         ),
       ),
     );

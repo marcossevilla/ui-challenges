@@ -65,23 +65,20 @@ class _FavoriteContact extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SpinPerfect(
-            duration: Duration(milliseconds: 500 * (index + 1)),
-            child: Container(
-              width: 55,
-              height: 55,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: kGreenyWhite, width: 3),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100.0),
-                child: CachedNetworkImage(
-                  imageUrl: chats[index].imageURL,
-                  placeholder: (context, url) => CupertinoActivityIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
-                  fit: BoxFit.cover,
-                ),
+          Container(
+            width: 55,
+            height: 55,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: kGreenyWhite, width: 3),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100.0),
+              child: CachedNetworkImage(
+                imageUrl: chats[index].imageURL,
+                placeholder: (context, url) => CupertinoActivityIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+                fit: BoxFit.cover,
               ),
             ),
           ),
