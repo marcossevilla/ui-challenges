@@ -158,7 +158,7 @@ class _Percentage extends StatelessWidget {
             backgroundColor: Colors.white,
             valueStrokeWidth: 5.0,
             backgroundStrokeWidth: 5.0,
-            percentageStyle: TextStyle(fontSize: 18.0),
+            percentageStyle: TextStyle(fontSize: 15.0),
           ),
         ),
       ],
