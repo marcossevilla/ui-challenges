@@ -23,6 +23,7 @@ class _Home extends StatelessWidget {
     "Charity App": CharityApp(),
     "Fitness App": FitnessApp(),
     "WhatsApp Redo": WhatsAppRedo(),
+    "Auction App": AuctionApp(),
   };
 
   @override

@@ -170,24 +170,26 @@ class _MealSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 25.0),
-      height: 200,
-      width: double.infinity,
-      child: PageView(
-        controller: PageController(
-          viewportFraction: 0.6,
-          initialPage: 0,
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 25.0),
+        height: 200,
+        width: double.infinity,
+        child: PageView(
+          controller: PageController(
+            viewportFraction: 0.6,
+            initialPage: 0,
+          ),
+          physics: BouncingScrollPhysics(),
+          children: [
+            for (int i = 0; i < 4; i++)
+              Container(
+                child: Image.asset('assets/fitness_app/meal-$i.png'),
+                height: 100,
+                width: 100,
+              ),
+          ],
         ),
-        physics: BouncingScrollPhysics(),
-        children: [
-          for (int i = 0; i < 4; i++)
-            Container(
-              child: Image.asset('assets/fitness_app/meal-$i.png'),
-              height: 100,
-              width: 100,
-            ),
-        ],
       ),
     );
   }

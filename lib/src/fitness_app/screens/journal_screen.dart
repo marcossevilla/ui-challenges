@@ -266,8 +266,7 @@ class _SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedCard(
       padding: const EdgeInsets.only(left: 10.0),
-      margin: const EdgeInsets.only(
-          top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
+      margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
       height: 55,
       child: Row(
         children: [
