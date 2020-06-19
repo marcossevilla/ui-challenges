@@ -1,8 +1,10 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:ui_challenges/src/shared/widgets/box_shadow.dart';
 
 class RadialProgressBar extends StatefulWidget {
+  final bool elevated;
   final bool showPercentage;
   final Color backgroundColor;
   final Color valueColor;
@@ -14,13 +16,14 @@ class RadialProgressBar extends StatefulWidget {
 
   RadialProgressBar({
     @required this.percentage,
-    this.backgroundColor,
+    this.duration = const Duration(milliseconds: 500),
+    this.elevated = false,
     this.valueColor,
     this.showPercentage = false,
+    this.percentageStyle,
+    this.backgroundColor,
     this.valueStrokeWidth = 10,
     this.backgroundStrokeWidth = 5,
-    this.percentageStyle,
-    this.duration = const Duration(milliseconds: 500),
   });
 
   @override
@@ -38,9 +41,7 @@ class _RadialProgressBarState extends State<RadialProgressBar>
   @override
   void initState() {
     oldPercentage = widget.percentage;
-
     _controller = AnimationController(vsync: this, duration: widget.duration);
-
     super.initState();
   }
 
@@ -66,11 +67,19 @@ class _RadialProgressBarState extends State<RadialProgressBar>
               child: widget.showPercentage
                   ? TweenAnimationBuilder<double>(
                       builder: (_, value, __) {
-                        return Text(
-                          value.toStringAsFixed(0),
-                          style: widget.percentageStyle == null
-                              ? Theme.of(context).textTheme.headline4
-                              : widget.percentageStyle,
+                        return Container(
+                          child: Text(
+                            value.toStringAsFixed(0),
+                            style: widget.percentageStyle == null
+                                ? Theme.of(context).textTheme.headline4
+                                : widget.percentageStyle,
+                          ),
+                          padding: const EdgeInsets.all(6.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                            boxShadow: widget.elevated ? [cardShadow()] : [],
+                          ),
                         );
                       },
                       duration: widget.duration,

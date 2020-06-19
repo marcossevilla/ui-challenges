@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_challenges/src/auction_app/widgets/profile_button.dart';
+import 'package:ui_challenges/src/auction_app/widgets/swiper_card.dart';
 import 'package:ui_challenges/src/shared/widgets/search_bar.dart';
 
 class AuctionApp extends StatelessWidget {
@@ -30,27 +31,33 @@ class _HomeScreen extends StatelessWidget {
               _AppBar(),
               SizedBox(height: 15.0),
               SearchBar(),
-              SizedBox(height: 10.0),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.6,
-                child: Swiper(
-                  itemCount: 3,
-                  itemWidth: 500,
-                  itemHeight: 450,
-                  layout: SwiperLayout.TINDER,
-                  itemBuilder: (context, i) {
-                    return Card(
-                      elevation: 8.0,
-                      color: Colors.primaries[i],
-                    );
-                  },
-                ),
-              ),
+              _Swiper(),
             ],
           ),
         ),
         bottomNavigationBar: _BottomNavBar(),
+      ),
+    );
+  }
+}
+
+class _Swiper extends StatelessWidget {
+  const _Swiper({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: Swiper(
+        itemCount: 5,
+        itemWidth: 500,
+        itemHeight: MediaQuery.of(context).size.height * 0.6,
+        layout: SwiperLayout.TINDER,
+        itemBuilder: (context, i) => Padding(
+          padding: const EdgeInsets.only(bottom: 15.0),
+          child: SwiperCard(),
+        ),
       ),
     );
   }
