@@ -5,9 +5,10 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 
 import 'package:ui_challenges/src/auction_app/data/fake_data.dart';
+import 'package:ui_challenges/src/auction_app/screens/fun_facts.dart';
 import 'package:ui_challenges/src/shared/widgets/modern_app_bar.dart';
 
 class MiddleScreen extends StatelessWidget {
@@ -46,7 +47,9 @@ class _Button extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      onPressed: () {},
+      onPressed: () => Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => FunFactsScreen()),
+      ),
     );
   }
 }
