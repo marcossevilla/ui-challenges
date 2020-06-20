@@ -27,7 +27,7 @@ class _HomeScreen extends StatelessWidget {
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         body: SafeArea(
-          child: Column(
+          child: ListView(
             children: [
               _AppBar(),
               SizedBox(height: 15.0),
@@ -76,11 +76,11 @@ class _Swiper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.width * 1.3,
+      height: MediaQuery.of(context).size.width * 1.4,
       child: Swiper(
         itemCount: 5,
         itemWidth: 500,
-        itemHeight: MediaQuery.of(context).size.width * 1.3,
+        itemHeight: MediaQuery.of(context).size.width * 1.4,
         layout: SwiperLayout.TINDER,
         itemBuilder: (context, i) => Padding(
           padding: const EdgeInsets.only(bottom: 15.0),
