@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:animate_do/animate_do.dart';
 
-
 import 'package:ui_challenges/src/auction_app/data/fake_data.dart';
 import 'package:ui_challenges/src/auction_app/screens/fun_facts.dart';
 import 'package:ui_challenges/src/shared/widgets/modern_app_bar.dart';
