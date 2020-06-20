@@ -98,46 +98,45 @@ class __SliderState extends State<_Slider> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.7,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: RotateAnimatedTextKit(
-              text: [for (var i in data.keys) i],
-              duration: const Duration(milliseconds: 2300),
-              textStyle: Theme.of(context).textTheme.headline4,
-              repeatForever: true,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: RotateAnimatedTextKit(
-              text: [for (var i in data.values) i],
-              duration: const Duration(milliseconds: 2300),
-              textStyle: Theme.of(context).textTheme.subtitle1,
-              repeatForever: true,
-            ),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.4,
-            child: PageView.builder(
-              physics: BouncingScrollPhysics(),
-              controller: _pageController,
-              itemBuilder: (context, i) {
-                return SlideInUp(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      'assets/auction_app/draw_${_index(i)}.svg',
-                    ),
+      child: PageView.builder(
+        physics: BouncingScrollPhysics(),
+        controller: _pageController,
+        itemBuilder: (context, i) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: SlideInDown(
+                  child: Text(
+                    data.keys.elementAt(_index(i)),
+                    style: Theme.of(context).textTheme.headline4,
                   ),
-                );
-              },
-            ),
-          ),
-        ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: SlideInDown(
+                  child: Text(
+                    data.values.elementAt(_index(i)),
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.0),
+              SlideInUp(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  alignment: Alignment.center,
+                  child: SvgPicture.asset(
+                    'assets/auction_app/draw_${_index(i)}.svg',
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
