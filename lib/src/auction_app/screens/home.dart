@@ -4,6 +4,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui_challenges/src/auction_app/widgets/profile_button.dart';
 import 'package:ui_challenges/src/auction_app/widgets/swiper_card.dart';
+import 'package:ui_challenges/src/shared/widgets/modern_app_bar.dart';
 import 'package:ui_challenges/src/shared/widgets/search_bar.dart';
 
 class AuctionApp extends StatelessWidget {
@@ -41,6 +42,33 @@ class _HomeScreen extends StatelessWidget {
   }
 }
 
+class _AppBar extends StatelessWidget {
+  const _AppBar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ModernAppBar(
+      leftChildren: [
+        Text(
+          'Refund requests',
+          style: Theme.of(context).textTheme.headline5.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+        Text(
+          '26 refund requests',
+          style: Theme.of(context).textTheme.caption.copyWith(
+                fontSize: 15.0,
+              ),
+        ),
+      ],
+      rightChildren: [ProfileButton()],
+    );
+  }
+}
+
 class _Swiper extends StatelessWidget {
   const _Swiper({Key key}) : super(key: key);
 
@@ -48,11 +76,11 @@ class _Swiper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: MediaQuery.of(context).size.width * 1.3,
       child: Swiper(
         itemCount: 5,
         itemWidth: 500,
-        itemHeight: MediaQuery.of(context).size.height * 0.6,
+        itemHeight: MediaQuery.of(context).size.width * 1.3,
         layout: SwiperLayout.TINDER,
         itemBuilder: (context, i) => Padding(
           padding: const EdgeInsets.only(bottom: 15.0),
@@ -93,36 +121,4 @@ class _BottomNavBar extends StatelessWidget {
   }
 }
 
-class _AppBar extends StatelessWidget {
-  const _AppBar({Key key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15.0, left: 15.0, right: 15.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Refund requests',
-                style: Theme.of(context).textTheme.headline5.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              Text(
-                '26 refund requests',
-                style: Theme.of(context).textTheme.caption.copyWith(
-                      fontSize: 15.0,
-                    ),
-              ),
-            ],
-          ),
-          ProfileButton(),
-        ],
-      ),
-    );
-  }
-}

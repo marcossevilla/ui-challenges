@@ -1,0 +1,180 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:flutter_svg/svg.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
+import 'package:ui_challenges/src/auction_app/data/fake_data.dart';
+import 'package:ui_challenges/src/shared/widgets/modern_app_bar.dart';
+
+class MiddleScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AnnotatedRegion(
+      value: SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        body: Column(
+          children: [
+            _AppBar(),
+            _Slider(),
+            _Button(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Button extends StatelessWidget {
+  const _Button({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      elevation: 0.0,
+      color: Colors.deepPurple,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text(
+          'Find full details',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      onPressed: () {},
+    );
+  }
+}
+
+class _Slider extends StatefulWidget {
+  const _Slider({Key key}) : super(key: key);
+
+  @override
+  __SliderState createState() => __SliderState();
+}
+
+class __SliderState extends State<_Slider> {
+  Timer _timer;
+  PageController _pageController;
+
+  // methods to repeat pageview elements
+
+  static int _repeat(int index) =>
+      data.length * ((index / data.length).floor());
+  static int _index(int index) =>
+      index > data.length - 1 ? index - _repeat(index) : index;
+
+  @override
+  void initState() {
+    _pageController = PageController();
+
+    _timer = Timer.periodic(
+      const Duration(milliseconds: 2700),
+      (timer) {
+        _pageController.nextPage(
+          curve: Curves.easeIn,
+          duration: const Duration(milliseconds: 500),
+        );
+      },
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.7,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: RotateAnimatedTextKit(
+              text: [for (var i in data.keys) i],
+              duration: const Duration(milliseconds: 2300),
+              textStyle: Theme.of(context).textTheme.headline4,
+              repeatForever: true,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: RotateAnimatedTextKit(
+              text: [for (var i in data.values) i],
+              duration: const Duration(milliseconds: 2300),
+              textStyle: Theme.of(context).textTheme.subtitle1,
+              repeatForever: true,
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            child: PageView.builder(
+              physics: BouncingScrollPhysics(),
+              controller: _pageController,
+              itemBuilder: (context, i) {
+                return SlideInUp(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset(
+                      'assets/auction_app/draw_${_index(i)}.svg',
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AppBar extends StatelessWidget {
+  const _AppBar({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ModernAppBar(
+      leftChildren: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
+              'Dmm',
+              style: TextStyle(
+                fontSize: 25.0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Container(width: 20.0, height: 5.0, color: Colors.orange),
+          ],
+        ),
+      ],
+      rightChildren: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(width: 30.0, height: 2.0, color: Colors.black),
+            SizedBox(height: 5.0),
+            Container(width: 20.0, height: 2.0, color: Colors.black),
+          ],
+        ),
+      ],
+    );
+  }
+}

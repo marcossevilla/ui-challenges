@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../screens/middle.dart';
 import '../../shared/widgets/radial_progress_bar.dart';
 
 class SwiperCard extends StatelessWidget {
@@ -58,7 +59,12 @@ class _UserInfo extends StatelessWidget {
           ],
         ),
         Spacer(),
-        Icon(Icons.arrow_forward_ios),
+        IconButton(
+          icon: Icon(Icons.arrow_forward_ios),
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => MiddleScreen()),
+          ),
+        ),
       ],
     );
   }

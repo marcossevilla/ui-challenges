@@ -46,6 +46,12 @@ class _RadialProgressBarState extends State<RadialProgressBar>
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     _controller.forward(from: 0.0);
 
