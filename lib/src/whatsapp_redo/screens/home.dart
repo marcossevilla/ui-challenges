@@ -36,9 +36,9 @@ class _HomeScreen extends StatelessWidget {
             child: _Header(),
           ),
           DraggableScrollableSheet(
-            initialChildSize: 0.8,
             minChildSize: 0.8,
             maxChildSize: 0.8,
+            initialChildSize: 0.8,
             builder: (context, ScrollController scrollController) {
               return SlideInUp(
                 child: Sheet(color: kShinyGreen, child: Favorites()),

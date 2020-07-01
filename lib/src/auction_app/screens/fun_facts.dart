@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ui_challenges/src/food_app/constants.dart';
 import 'package:ui_challenges/src/shared/widgets/box_shadow.dart';
 import 'package:ui_challenges/src/shared/widgets/modern_app_bar.dart';
 
