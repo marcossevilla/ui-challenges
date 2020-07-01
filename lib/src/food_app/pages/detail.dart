@@ -27,10 +27,7 @@ class DetailPage extends StatelessWidget {
 }
 
 class _ScrollView extends StatelessWidget {
-  const _ScrollView({
-    Key key,
-    @required this.index,
-  }) : super(key: key);
+  const _ScrollView({Key key, @required this.index}) : super(key: key);
 
   final int index;
 

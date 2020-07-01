@@ -1,18 +1,115 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_lorem/flutter_lorem.dart';
+import 'package:flutter_svg/svg.dart';
 import '../colors.dart';
 
 class BankingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _SplashScreen();
+    return Material(child: _SplashScreen());
   }
 }
 
 class _SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _BackgroundCanvas();
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        _BackgroundCanvas(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Spacer(),
+              _Picture(),
+              Text(
+                'Stay Secure',
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      color: kPinkyPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                lorem(paragraphs: 1, words: 12),
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                      color: kNeonAqua,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              SizedBox(height: 10.0),
+              _Indicators(),
+              Spacer(),
+              _BottomButtons(),
+              SizedBox(height: 10.0),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _Picture extends StatelessWidget {
+  const _Picture({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 300,
+      height: 300,
+      child: SvgPicture.asset('assets/banking_app/savings.svg'),
+    );
+  }
+}
+
+class _BottomButtons extends StatelessWidget {
+  const _BottomButtons({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10.0),
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CupertinoButton(
+            child: Text(
+              'Skip',
+              style: TextStyle(color: kNeonAqua, fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.chevron_right, color: Colors.white, size: 30.0),
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Indicators extends StatelessWidget {
+  const _Indicators({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        for (int i = 0; i < 3; i++)
+          Container(
+            margin: const EdgeInsets.only(right: 10.0),
+            width: i == 2 ? 30.0 : 10.0,
+            height: 5.0,
+            color: i == 2 ? kSolidPink : Colors.grey.shade300,
+          )
+      ],
+    );
   }
 }
 
@@ -29,6 +126,8 @@ class _BackgroundCanvas extends StatelessWidget {
     );
   }
 }
+
+// here comes the actual mess, I don't really know how I did this
 
 class _MyPainter extends CustomPainter {
   @override
@@ -78,7 +177,7 @@ class _MyPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     final lowerBigPath = Path();
-    lowerBigPath.moveTo(0, size.height * 1.4);
+    lowerBigPath.moveTo(0, size.height * 1.5);
     lowerBigPath.quadraticBezierTo(
       size.width * 0.1,
       size.height * 0.7,
