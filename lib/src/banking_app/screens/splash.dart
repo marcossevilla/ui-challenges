@@ -34,7 +34,7 @@ class _MyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     // upper big widget
-    final upperBig = Paint()
+    final pinkUpper = Paint()
       ..color = kSolidPink
       ..style = PaintingStyle.fill;
 
@@ -53,10 +53,10 @@ class _MyPainter extends CustomPainter {
       size.height * -0.18,
     );
 
-    canvas.drawPath(upperBigPath, upperBig);
+    canvas.drawPath(upperBigPath, pinkUpper);
 
     // upper small widget
-    final upperSmall = Paint()
+    final purpleUpper = Paint()
       ..color = kPinkyPurple
       ..style = PaintingStyle.fill;
 
@@ -69,7 +69,41 @@ class _MyPainter extends CustomPainter {
       size.width * 0.5,
       0,
     );
-    canvas.drawPath(upperSmallPath, upperSmall);
+    canvas.drawPath(upperSmallPath, purpleUpper);
+
+    // lower big widget
+
+    final purpleLower = Paint()
+      ..color = kPinkyPurple
+      ..style = PaintingStyle.fill;
+
+    final lowerBigPath = Path();
+    lowerBigPath.moveTo(0, size.height * 1.4);
+    lowerBigPath.quadraticBezierTo(
+      size.width * 0.1,
+      size.height * 0.7,
+      size.width,
+      size.height * 0.8,
+    );
+    lowerBigPath.lineTo(size.width, size.height);
+
+    canvas.drawPath(lowerBigPath, purpleLower);
+
+    // lower small widget
+    final pinkLower = Paint()
+      ..color = kSolidPink
+      ..style = PaintingStyle.fill;
+
+    final lowerSmallPath = Path();
+    lowerSmallPath.moveTo(0, size.height * 1.5);
+    lowerSmallPath.quadraticBezierTo(
+      size.width * 0.6,
+      size.height * 0.65,
+      size.width * 1.2,
+      size.height * 0.9,
+    );
+    lowerSmallPath.lineTo(size.width, size.height);
+    canvas.drawPath(lowerSmallPath, pinkLower);
   }
 
   @override
