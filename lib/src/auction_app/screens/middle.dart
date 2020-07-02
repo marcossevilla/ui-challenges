@@ -7,8 +7,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:animate_do/animate_do.dart';
 
 import 'package:ui_challenges/src/auction_app/data/fake_data.dart';
-import 'package:ui_challenges/src/auction_app/screens/fun_facts.dart';
+import 'package:ui_challenges/src/shared/widgets/modern_drawer.dart';
 import 'package:ui_challenges/src/shared/widgets/modern_app_bar.dart';
+import 'package:ui_challenges/src/auction_app/screens/fun_facts.dart';
 
 class MiddleScreen extends StatelessWidget {
   @override
@@ -167,14 +168,7 @@ class _AppBar extends StatelessWidget {
         ),
       ],
       rightChildren: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Container(width: 30.0, height: 2.0, color: Colors.black),
-            SizedBox(height: 5.0),
-            Container(width: 20.0, height: 2.0, color: Colors.black),
-          ],
-        ),
+        ModernDrawer(),
       ],
     );
   }

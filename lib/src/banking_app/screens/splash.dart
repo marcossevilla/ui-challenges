@@ -1,7 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_lorem/flutter_lorem.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
+
+import 'home.dart';
 import '../colors.dart';
 
 class BankingApp extends StatelessWidget {
@@ -15,11 +18,10 @@ class _SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.center,
       children: [
         _BackgroundCanvas(),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -86,7 +88,9 @@ class _BottomButtons extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.chevron_right, color: Colors.white, size: 30.0),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            ),
           ),
         ],
       ),
