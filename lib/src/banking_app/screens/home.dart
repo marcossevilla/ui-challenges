@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 import '../widgets/header_card.dart';
+import '../widgets/bank_card.dart';
 import '../../shared/widgets/modern_drawer.dart';
 
 const tabs = ['Day', 'Week', 'Month', 'Year'];
@@ -33,7 +34,7 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
@@ -47,9 +48,25 @@ class _Body extends StatelessWidget {
               _TabViews(),
               SizedBox(height: 10.0),
               _RadioButtons(),
+              _Cards(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _Cards extends StatelessWidget {
+  const _Cards({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        children: [BankCard(), AddCard()],
       ),
     );
   }
@@ -104,10 +121,10 @@ class _TabViews extends StatelessWidget {
       height: 200,
       child: TabBarView(
         children: [
-          Icon(Icons.apps),
+          Container(),
           _Stats(),
-          Icon(Icons.movie),
-          Icon(Icons.games),
+          Container(),
+          Container(),
         ],
       ),
     );
@@ -262,15 +279,15 @@ class _Header extends StatelessWidget {
                 ),
           ),
           SizedBox(height: 20.0),
-          _Cards(),
+          _BankingInfo(),
         ],
       ),
     );
   }
 }
 
-class _Cards extends StatelessWidget {
-  const _Cards({Key key}) : super(key: key);
+class _BankingInfo extends StatelessWidget {
+  const _BankingInfo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

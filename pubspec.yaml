@@ -28,6 +28,7 @@ dependencies:
   animate_do: ^1.7.2
   animations: ^1.0.0+5
   flutter_svg: ^0.17.4
+  dotted_border: ^1.0.5
   flutter_lorem: ^1.1.0
   flutter_swiper: ^1.1.6
   animated_text_kit: ^2.2.0
