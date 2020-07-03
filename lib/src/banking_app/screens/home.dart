@@ -66,7 +66,7 @@ class _Cards extends StatelessWidget {
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        children: [BankCard(), AddCard()],
+        children: [Hero(tag: 'card', child: BankCard()), AddCard()],
       ),
     );
   }
