@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   
+  mdi: ^3.0.0
   provider: ^4.1.2
   animate_do: ^1.7.2
   animations: ^1.0.0+5

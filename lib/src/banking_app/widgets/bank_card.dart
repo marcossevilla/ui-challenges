@@ -31,8 +31,11 @@ class BankCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(FontAwesomeIcons.ccVisa,
-                      color: Colors.white, size: 45.0),
+                  Icon(
+                    FontAwesomeIcons.ccVisa,
+                    color: Colors.white,
+                    size: 45.0,
+                  ),
                   Text(
                     '1234 5678 9890 1244',
                     style: TextStyle(color: Colors.white, letterSpacing: 2),
