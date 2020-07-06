@@ -40,7 +40,7 @@ class _Body extends StatelessWidget {
           borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
         ),
         child: DefaultTabController(
-          length: 4,
+          length: tabs.length,
           initialIndex: 1,
           child: Column(
             children: [

@@ -9,9 +9,7 @@ import '../colors.dart';
 
 class BankingApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return Material(child: _SplashScreen());
-  }
+  Widget build(BuildContext context) => Material(child: _SplashScreen());
 }
 
 class _SplashScreen extends StatelessWidget {

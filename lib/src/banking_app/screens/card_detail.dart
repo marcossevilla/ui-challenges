@@ -48,7 +48,7 @@ class CardDetailScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 25.0, right: 20.0),
             child: ModernDrawer(),
-          )
+          ),
         ],
       ),
       backgroundColor: kSolidPink,
