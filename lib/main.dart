@@ -19,12 +19,13 @@ class _Home extends StatelessWidget {
   const _Home({Key key}) : super(key: key);
 
   static Map<String, Widget> pages = {
-    "Food App": FoodApp(),
-    "Charity App": CharityApp(),
-    "Fitness App": FitnessApp(),
-    "WhatsApp Redo": WhatsAppRedo(),
-    "Auction App": AuctionApp(),
-    "Banking App": BankingApp(),
+    'Food App': FoodApp(),
+    'Charity App': CharityApp(),
+    'Fitness App': FitnessApp(),
+    'WhatsApp Redo': WhatsAppRedo(),
+    'Auction App': AuctionApp(),
+    'Banking App': BankingApp(),
+    'Weather App': WeatherApp(),
   };
 
   @override
