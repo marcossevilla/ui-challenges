@@ -29,8 +29,10 @@ dependencies:
   animate_do: ^1.7.2
   animations: ^1.0.0+5
   flutter_svg: ^0.17.4
+  google_fonts: ^1.1.0
   dotted_border: ^1.0.5
   flutter_lorem: ^1.1.0
+  flare_flutter: ^2.0.6
   flutter_swiper: ^1.1.6
   animated_text_kit: ^2.2.0
   font_awesome_flutter: ^8.8.1
@@ -63,6 +65,7 @@ flutter:
     - assets/auction_app/
     - assets/banking_app/
     - assets/medical_app/
+    - assets/weather_app/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

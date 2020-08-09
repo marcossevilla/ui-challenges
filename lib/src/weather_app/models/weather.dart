@@ -10,8 +10,14 @@ class Weather {
   final IconData icon;
   final List<Color> colors;
 
-  const Weather(this.id,
-      {this.celsius, this.asset, this.day, this.icon, this.colors});
+  const Weather(
+    this.id, {
+    this.celsius,
+    this.asset,
+    this.day,
+    this.icon,
+    this.colors,
+  });
 }
 
 class WeatherProvider with ChangeNotifier {
@@ -19,26 +25,35 @@ class WeatherProvider with ChangeNotifier {
     Weather(
       0,
       celsius: 29.0,
-      asset: '',
+      asset: 'snow',
       day: 'Today',
       icon: FontAwesomeIcons.cloudRain,
-      colors: [Colors.cyan, Colors.cyanAccent],
+      colors: [
+        Color.fromRGBO(154, 252, 233, 1),
+        Color.fromRGBO(120, 236, 226, 1),
+      ],
     ),
     Weather(
       1,
       celsius: 28.0,
-      asset: '',
+      asset: 'flash',
       day: 'Monday',
       icon: FontAwesomeIcons.pooStorm,
-      colors: [Colors.lightBlue, Colors.lightBlueAccent],
+      colors: [
+        Color.fromRGBO(135, 237, 252, 1),
+        Color.fromRGBO(101, 214, 251, 1),
+      ],
     ),
     Weather(
       2,
       celsius: 9.0,
-      asset: '',
+      asset: 'rain',
       day: 'Tuesday',
       icon: FontAwesomeIcons.cloudRain,
-      colors: [Colors.yellow, Colors.yellowAccent],
+      colors: [
+        Color.fromRGBO(255, 254, 188, 1),
+        Color.fromRGBO(232, 223, 177, 1),
+      ],
     ),
   ];
 
@@ -50,4 +65,7 @@ class WeatherProvider with ChangeNotifier {
     _currentWeather = value;
     notifyListeners();
   }
+
+  PageController _controller = PageController();
+  PageController get controller => _controller;
 }
