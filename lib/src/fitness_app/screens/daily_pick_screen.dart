@@ -32,7 +32,7 @@ class _NewRecipes extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 20.0, left: 45.0),
+          margin: const EdgeInsets.only(top: 30, left: 45, bottom: 15),
           width: double.infinity,
           child: FadeIn(
             child: Text(
@@ -83,7 +83,7 @@ class _DailyPick extends StatelessWidget {
         ),
       ),
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.65,
+      height: MediaQuery.of(context).size.height * .6,
       child: SafeArea(
         child: ListView(
           children: [
@@ -145,17 +145,16 @@ class _Buttons extends StatelessWidget {
             icon: FontAwesomeIcons.solidBookmark,
             iconColor: Colors.white,
           ),
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.only(left: 10.0),
-              height: 70,
-              child: LargeButton(
-                textColor: darkPurple,
-                label: 'Let\'s try',
-                backgroundColor: Colors.white,
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => JournalScreen()),
-                ),
+          Container(
+            margin: const EdgeInsets.only(left: 10.0),
+            height: 70,
+            width: 200,
+            child: LargeButton(
+              textColor: darkPurple,
+              label: 'Let\'s try',
+              backgroundColor: Colors.white,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => JournalScreen()),
               ),
             ),
           ),
@@ -170,26 +169,24 @@ class _MealSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 25.0),
-        height: 200,
-        width: double.infinity,
-        child: PageView(
-          controller: PageController(
-            viewportFraction: 0.6,
-            initialPage: 0,
-          ),
-          physics: BouncingScrollPhysics(),
-          children: [
-            for (int i = 0; i < 4; i++)
-              Container(
-                child: Image.asset('assets/fitness_app/meal-$i.png'),
-                height: 100,
-                width: 100,
-              ),
-          ],
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 25.0),
+      height: 200,
+      width: double.infinity,
+      child: PageView(
+        controller: PageController(
+          viewportFraction: 0.6,
+          initialPage: 0,
         ),
+        physics: BouncingScrollPhysics(),
+        children: [
+          for (int i = 0; i < 4; i++)
+            Container(
+              child: Image.asset('assets/fitness_app/meal-$i.png'),
+              height: 100,
+              width: 100,
+            ),
+        ],
       ),
     );
   }

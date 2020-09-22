@@ -62,7 +62,8 @@ class _Cards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 225,
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -296,7 +297,7 @@ class _BankingInfo extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            right: 15,
+            right: MediaQuery.of(context).size.width * .08,
             child: HeaderCard(
               backgroundColor: kLighterPink,
               title: 'Income',
@@ -305,7 +306,7 @@ class _BankingInfo extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 15,
+            left: MediaQuery.of(context).size.width * .08,
             child: HeaderCard(
               backgroundColor: kPinkyPurple,
               title: 'Spending',

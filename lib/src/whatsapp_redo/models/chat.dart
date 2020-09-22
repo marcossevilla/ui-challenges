@@ -24,7 +24,7 @@ final chats = [
     sender: 'Matt Champion',
     message: 'You like my verse in RENTAL?',
     imageURL:
-        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+        'https://static.wikia.nocookie.net/the-brockhampton/images/f/f2/Screenshot_%28392%29.png',
     unread: 1,
   ),
   Chat(
@@ -32,7 +32,7 @@ final chats = [
     sender: 'Kevin Abstract',
     message: 'Peach is sooo good',
     imageURL:
-        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+        'https://i.pinimg.com/originals/3c/d1/f7/3cd1f739ab2f91cb63c5599692b1a980.jpg',
     unread: 0,
   ),
   Chat(
@@ -40,7 +40,7 @@ final chats = [
     sender: 'Bearface',
     message: 'Summer sucks when it\'s pandemic',
     imageURL:
-        'https://vignette.wikia.nocookie.net/brockhampton/images/6/67/BF1.jpg/revision/latest?cb=20180330053655',
+        'https://vignette.wikia.nocookie.net/brockhampton/images/6/67/BF1.jpg/revision/latest/top-crop/width/360/height/450?cb=20180330053655',
     unread: 3,
   ),
   Chat(
@@ -91,42 +91,42 @@ final conversation = [
     sender: 'Matt Champion',
     message: 'The world is crazy man',
     imageURL:
-        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+        'https://static.wikia.nocookie.net/the-brockhampton/images/f/f2/Screenshot_%28392%29.png',
   ),
   Chat(
     time: '${DateTime.now().hour}:50',
     sender: 'Me',
     message: 'It is',
     imageURL:
-        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+        'https://i.pinimg.com/originals/3c/d1/f7/3cd1f739ab2f91cb63c5599692b1a980.jpg',
   ),
   Chat(
     time: '${DateTime.now().hour}:51',
     sender: 'Me',
     message: 'Dark says the end of the world is on June 27th',
     imageURL:
-        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+        'https://static.wikia.nocookie.net/the-brockhampton/images/f/f2/Screenshot_%28392%29.png',
   ),
   Chat(
     time: '${DateTime.now().hour}:55',
     sender: 'Matt Champion',
     message: 'Haha seems like it',
     imageURL:
-        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+        'https://i.pinimg.com/originals/3c/d1/f7/3cd1f739ab2f91cb63c5599692b1a980.jpg',
   ),
   Chat(
     time: '${DateTime.now().hour}:56',
     sender: 'Matt Champion',
     imageURL:
-        'https://i.pinimg.com/originals/74/17/12/7417127d0af0bf05e8190dac8c3dea85.jpg',
+        'https://static.wikia.nocookie.net/the-brockhampton/images/f/f2/Screenshot_%28392%29.png',
     imageMessageURL:
-        'https://i.insider.com/5df126b679d7570ad2044f3e?width=1100&format=jpeg&auto=webp',
+        'https://i.insider.com/5484d9d1eab8ea3017b17e29?width=1100&format=jpeg&auto=webp',
   ),
   Chat(
     time: '${DateTime.now().hour}:59',
     sender: 'Me',
     imageURL:
-        'https://lastfm.freetls.fastly.net/i/u/770x0/37af8edd1955d078d7cfc26d067fee76.jpg#37af8edd1955d078d7cfc26d067fee76',
+        'https://i.pinimg.com/originals/3c/d1/f7/3cd1f739ab2f91cb63c5599692b1a980.jpg',
     isVoice: true,
   ),
 ];
