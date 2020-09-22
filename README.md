@@ -20,7 +20,14 @@ flutter pub get
 
 Before going through the code, you probably would want to know the UIs you'll see, so I'm leaving them to you for quick reference.
 
-Food Delivery App | Banking App
+Food Delivery App | Weather App
 ------------ | -------------
-![Home](/assets/food_app/screens/home.png) | ![Home](/assets/banking_app/screens/home.png)
-![Detail](/assets/food_app/screens/detail.png) | ![Card Detail](/assets/banking_app/screens/card.png)
+![Home](/assets/food_app/screens/home.png) | ![Home](/assets/weather_app/screens/weather.png)
+![Detail](/assets/food_app/screens/detail.png) |
+
+WhatsApp Redo | Charity App
+------------ | -------------
+![Home](/assets/whatsapp_redo/screens/home.png) | ![Home](/assets/charity_app/screens/home.png)
+![Chat](/assets/whatsapp_redo/screens/detail.png) | ![Learn More](/assets/charity_app/screens/learn.png)
+![Drawer](/assets/whatsapp_redo/screens/drawer.png) | ![Drawer](/assets/charity_app/screens/drawer.png)
+
