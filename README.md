@@ -1,16 +1,26 @@
-# ui_challenges
+# UI Challenges
 
-A new Flutter project.
+This project began with a competition between my rival from college, Elian, and me. 
+
+We wanted to see who did the best UI code in Flutter by implementing these challenges.
+
+Our competition now has given some content for the community, so, enjoy!
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project has every challenge in its own folder if you go to `lib/src`
 
-A few resources to get you started if this is your first Flutter project:
+Make sure you get all packages before running it with
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```sh
+flutter pub get
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## The Challenges
+
+Before going through the code, you probably would want to know the UIs you'll see, so I'm leaving them to you for quick reference.
+
+Food Delivery App | Banking App
+------------ | -------------
+![Home](/assets/food_app/screens/home.png) | ![Home](/assets/banking_app/screens/home.png)
+![Detail](/assets/food_app/screens/detail.png) | ![Card Detail](/assets/banking_app/screens/card.png)
