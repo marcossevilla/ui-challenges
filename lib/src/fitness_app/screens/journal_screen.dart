@@ -62,7 +62,6 @@ class _MealCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedCard(
-      height: 430,
       margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -265,9 +264,13 @@ class _SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedCard(
-      padding: const EdgeInsets.only(left: 10.0),
-      margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0, bottom: 10.0),
-      height: 55,
+      padding: const EdgeInsets.only(left: 10.0, top: 18.0, bottom: 18.0),
+      margin: const EdgeInsets.only(
+        top: 20.0,
+        left: 20.0,
+        right: 20.0,
+        bottom: 10.0,
+      ),
       child: Row(
         children: [
           Icon(Icons.search, color: Colors.grey),

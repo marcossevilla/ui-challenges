@@ -74,13 +74,11 @@ class _RecipeData extends StatelessWidget {
 class ElevatedCard extends StatelessWidget {
   const ElevatedCard({
     Key key,
-    @required this.height,
     @required this.child,
     @required this.padding,
     @required this.margin,
   }) : super(key: key);
 
-  final double height;
   final Widget child;
   final EdgeInsets padding;
   final EdgeInsets margin;
@@ -89,7 +87,6 @@ class ElevatedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: this.height,
       padding: this.padding,
       margin: this.margin,
       decoration: BoxDecoration(
