@@ -1,12 +1,14 @@
 # UI Challenges
 
-This project began with a competition between my rival from college, @elian-ortega, and me. 
+This project began with a competition between my rival from college (currently code partner), [Elian](http://github.com/elian-ortega), and me. 
 
 We wanted to see who did the best UI code in Flutter by implementing these challenges.
 
 Our competition now has given some content for the community, so, enjoy!
 
 **Disclaimer**: We did this challenges with a deadline, so it's not the best code we wrote in our lives. Feel free to improve the code you see here.
+
+Also, you can check our [YouTube channel](https://www.youtube.com/channel/UCPz6bJ3DptMMXu7_hMb1oJQ) with Flutter videos for Spanish speakers.
 
 ## Getting Started
 
