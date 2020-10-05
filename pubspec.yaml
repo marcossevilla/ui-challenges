@@ -63,8 +63,8 @@ flutter:
     - assets/fitness_app/
     - assets/auction_app/
     - assets/banking_app/
-    - assets/medical_app/
     - assets/weather_app/
+    - assets/trip_app/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

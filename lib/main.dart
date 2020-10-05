@@ -26,6 +26,7 @@ class _Home extends StatelessWidget {
     'Auction App': AuctionApp(),
     'Banking App': BankingApp(),
     'Weather App': WeatherApp(),
+    'Trip App': TripApp(),
   };
 
   @override
