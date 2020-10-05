@@ -38,6 +38,11 @@ WhatsApp Redo | Charity App
 ![Chat](/assets/whatsapp_redo/chat.png) | ![Learn More](/assets/charity_app/screens/learn.png)
 ![Drawer](/assets/whatsapp_redo/drawer.png) | ![Drawer](/assets/charity_app/screens/drawer.png)
 
+Trip App |
+------------ |
+![Home](/assets/trip_app/screens/home.png) |
+![Detail](/assets/trip_app/screens/detail.png) |
+
 Food Delivery App | Weather App
 ------------ | -------------
 ![Home](/assets/food_app/screens/home.png) | ![Weather](/assets/weather_app/screens/weather.png)
